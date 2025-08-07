@@ -7,14 +7,14 @@ import sys
 
 
 # --- Configuration parameters ---
-# Name of the process to monitor for triggering backups#
+# Name of the process to monitor for triggering backups
 PROCESS_NAME = 'cherrytree'
 # Source and Backup paths
 SOURCE_DIR = Path.home() / "Documents" / "Cherry Tree"
 BACKUP_DIR = Path.home() / "Documents" / "Backups" / "Cherry Tree"
-# Time between back ups
-BACKUP_INTERVAL = 300
-# Maximum number of back ups
+
+BACKUP_INTERVAL = 3
+
 MAX_BACKUPS = 50
 
 # --- Initial folder checks ---
@@ -46,9 +46,9 @@ def save_backup():
     backup_subdir = BACKUP_DIR / f"backup_{timestamp}"
     backup_subdir.mkdir()
 
-    # Copy all .ctb and .ctd files (or everything, if preferred)
+    # Copy all .ctb and .ctd files 
     for file in SOURCE_DIR.iterdir():
-        if file.suffix in (".ctb", ".ctd"):  # or remove this check to copy all files
+        if file.suffix in (".ctb", ".ctd"): 
             shutil.copy2(file, backup_subdir)
 
     print(f"Backup saved to: {backup_subdir}")
