@@ -13,7 +13,7 @@ PROCESS_NAME = 'cherrytree'
 SOURCE_DIR = Path.home() / "Documents" / "Cherry Tree"
 BACKUP_DIR = Path.home() / "Documents" / "Backups" / "Cherry Tree"
 
-BACKUP_INTERVAL = 3
+BACKUP_INTERVAL = 300
 
 MAX_BACKUPS = 50
 
