@@ -38,7 +38,7 @@ def delete_oldest_backup():
 
     
 def save_backup():
-    # Delete old back-ups
+    
     delete_oldest_backup()
 
     # Create a timestamped subdirectory for this backup
@@ -46,7 +46,8 @@ def save_backup():
     backup_subdir = BACKUP_DIR / f"backup_{timestamp}"
     backup_subdir.mkdir()
 
-    # Copy all .ctb and .ctd files 
+    # Copy only .ctb and .ctd files because the Cherry Tree Folder has other files in it
+    # You need to modify this if you are trying to create a back-up script for another application
     for file in SOURCE_DIR.iterdir():
         if file.suffix in (".ctb", ".ctd"): 
             shutil.copy2(file, backup_subdir)
