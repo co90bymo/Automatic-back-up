@@ -66,7 +66,6 @@ systemctl --user status cherrytree_backup.service
 ## 📡 View live logs
 ```bash
 journalctl --user -u cherrytree_backup.service -f
-```
 
 
 ```
